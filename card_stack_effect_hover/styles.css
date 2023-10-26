@@ -1,0 +1,127 @@
+
+:root {
+  --primary_text: #F75049;
+  --title_text: #C7C7C7;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #6c6c6d;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+ul {
+  position: relative;
+  display: flex;
+  transform-style: preserve-3d;
+}
+
+ul li {
+  position: relative;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  margin: 0 10px;
+  transition: transform .2s ease-in-out;
+}
+ul li:hover {
+  transform: rotate(-25deg) skew(25deg);
+}
+/* Borde frontal */
+ul li:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: var(--primary_text);
+  transform-origin: top;
+  transform: skewX(-41deg);
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+/* Borde Lateral */
+ul li:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -9px;
+  width: 9px;
+  height: 100%;
+  background: var(--primary_text);
+  transform-origin: right;
+  transform: skewY(-49deg);
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+ul li span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary_text);
+  color: var(--title_text);
+  font-size: 2rem;
+  transition: 0.5s;
+}
+
+ul li:hover span {
+  z-index: 1000;
+  transition: 0.5s;
+  color: #fff;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+ul li:hover:after {
+  opacity: 1;
+}
+ul li:hover:before {
+  opacity: 1;
+}
+
+ul li:hover span:nth-child(5) {
+  transform: translate(40px, -40px);
+  opacity: 1;
+}
+
+ul li:hover span:nth-child(4) {
+  transform: translate(30px, -30px);
+  opacity: .8;
+}
+
+ul li:hover span:nth-child(3) {
+  transform: translate(20px, -20px);
+  opacity: .6;
+}
+
+ul li:hover span:nth-child(2) {
+  transform: translate(10px, -10px);
+  opacity: .4;
+}
+
+ul li:hover span:nth-child(1) {
+  transform: translate(0px, 0px);
+  opacity: .2;
+}
+
+ul li:nth-child(1):hover i {
+  background: var(--primary_text);
+}
